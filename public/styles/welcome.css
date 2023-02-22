@@ -1,0 +1,69 @@
+.bod {
+    background: #000000;
+}
+
+#mfclogo {
+    width: 80px;
+    height: 80px;
+    left: 27px;
+    top: 22px;
+    position: relative;
+}
+
+.log {
+    margin-top: 3rem;
+    padding: 3rem;
+    font-size: 6.5rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.part {
+    font-size: 2.5rem;
+    color: white;
+}
+
+.bod::before {
+    content: '';
+    position: absolute;
+    width: 37%;
+    height: 20%;
+    transform: translate(-4.9375rem, -7.625rem);
+    background: #8D3AC0;
+    filter: blur(65px);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.bod::after {
+    content: '';
+    position: absolute;
+    width: 37%;
+    height: 20%;
+    transform: translate(38.9375rem, 1.625rem);
+    background: #499EA4;
+    filter: blur(65px);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.buttons {
+    margin-top: 3rem !important;
+    border-radius: 42px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    font-size: 1.5rem;
+}
+
+button {
+    background: linear-gradient(269.34deg, #9F41FE 5.06%, #A81C1C 185.18%),
+        linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+    width: 12rem;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+input {
+    width: 12rem;
+    background-color: #000000;
+    text-align: center;
+    color: white;
+}
