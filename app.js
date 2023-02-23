@@ -39,9 +39,15 @@ app.use(cookieParser());
 
 app.get('/', (req, res) => {
   try {
-    res.sendFile('welcome.html', { root: path.join(__dirname, '/public') })
-  
 
+    if(req.cookies.token !== undefined)
+    {
+      res.redirect('/dashboard')
+    }
+    else
+    {
+    res.sendFile('welcome.html', { root: path.join(__dirname, '/public') })
+    }
   } catch (error) {
     console.error('Error rendering login page:', error);
     res.status(500).send('Internal Server Error');
@@ -59,13 +65,8 @@ app.post('/', async (req, res) => {
     const name = req.body.teamNo;
     const password = req.body.password;
   
- 
-
   
     const user = await MyModel.findOne({ name: name });
-  ;
-   
-
     const static_string = env.stat.static_string;
     
     
@@ -82,7 +83,6 @@ app.post('/', async (req, res) => {
       return res.status(401).json({ message: 'User is already logged in' });
     }
     
-
  
   
     const payload = { userId: user._id };
@@ -244,7 +244,7 @@ app.get('/logout', async (req, res) => {
   }
 });
 
-app.get('/dashboard/codes/success', (req, res) => {
+app.get('/dashboard/codes/success', auth,(req, res) => {
   try {
     res.sendFile('sucess.html', { root: __dirname + '/public', headers: { 'Content-Type': 'text/html' } });// show the success page
   }
@@ -255,7 +255,7 @@ app.get('/dashboard/codes/success', (req, res) => {
   }
 })
 
-app.get('/dashboard/codes/error', (req, res) => {
+app.get('/dashboard/codes/error',auth, (req, res) => {
   try {
     res.sendFile('error.html', { root: __dirname + '/public', headers: { 'Content-Type': 'text/html' } });
   }
@@ -267,18 +267,14 @@ app.get('/dashboard/codes/error', (req, res) => {
 })
 
 
-
 app.post('/dashboard/codes', auth, async (req, res) => {
-
   try {
-
     const search = req.body.search;
     const token = req.cookies.token;
     let temp = 0;
     const ques_easy = await Easy.findOne({ code: search });
     const ques_med = await Medium.findOne({ code: search });
     const ques_hard = await Hard.findOne({ code: search });
-    //console.log(question) 
 
     if (ques_easy != null) {
       temp = ques_easy.score;
@@ -287,6 +283,7 @@ app.post('/dashboard/codes', auth, async (req, res) => {
     if (ques_med != null) {
       temp = ques_med.score;
     }
+
     if (ques_hard != null) {
       temp = ques_hard.score;
     }
@@ -297,41 +294,38 @@ app.post('/dashboard/codes', auth, async (req, res) => {
 
     if (!updatedUser) throw new Error('User not found');
 
+    let codeFound = false; // initialize flag to indicate if search code was found
+
     for (var i = 0; i < updatedUser.arr.length; i++) {
-
       if (updatedUser.arr[i] === search) {
-
-        //const detail = await MyModel.find({arr:search})
-
-        //console.log(detail)
-
         await updatedUser.updateOne({
           $inc: {
             point: temp,
-          }
+          },
         });
-
+  
         let newArr = [...updatedUser.arr];
         newArr.splice(i, 1, null);
         updatedUser.arr = newArr;
-
-
+  
         await updatedUser.save();
-
-        // Replace the found code in the `arr` field with `null`
-
-
-        res.redirect('/dashboard/codes/success')
-
+  
+        codeFound = true; // set flag to true since code was found
+        break; // exit loop since code was found
       }
     }
-
-    //return res.send("The score is not updated");
+  
+    if (codeFound && temp > 0) { // check that code was found and score is greater than zero
+      res.status(200).json({success:true});
+    } else {
+      res.status(200).json({success:false});
+    }
   } catch (err) {
-    console.error(err)
+    console.error(err);
     return res.status(500).send(err.message);
   }
-});
+})
+
 
 app.listen(env.server.port, () => console.log('Server listening on port 3000'))
 

@@ -24,9 +24,9 @@
   font-size: 7.4vw;
 }
 
-.add-shadow {
+/* .add-shadow {
   box-shadow: 0 8px 6px -6px #999;
-}
+} */
 
 nav {
   background-color: black !important;
@@ -43,6 +43,11 @@ section {
 .nav-item {
   font-size: 1.5vw;
 }
+
+.nav-item1.nav-link mx-1 {
+  font-size: 2.5vw;
+}
+
 
 .nav-link {
   font-size: 1.5vw;
@@ -80,6 +85,29 @@ nav ul li a {
   color: #F0F0F0;
   font-size: 1.5rem;
   padding: 8px 23px;
+}
+
+.about_title {
+  color: white;
+  text-align: center;
+  font-weight: 700;
+  line-height: 45px;
+  letter-spacing: 0.085em;
+  position: relative;
+}
+
+
+/* .logout {
+  padding-top: 1rem;
+  font-size: 2.5vw;
+  margin-top: 2rem;
+} */
+
+#log.logout {
+  padding: 10px;
+  background: #9F1FE4;
+  border-radius: 25px;
+  font-weight: 400;
 }
 
 /* #navi::after {

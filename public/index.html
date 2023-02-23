@@ -34,8 +34,18 @@
             <a href="#gre" class="nav-link mx-1">HINTS</a>
           </li>
           <li class="nav-item">
-            <a href="#whi" class="nav-link mx-1">FAQ</a>
+            <a href="#fuck" class="nav-link button ">FAQ</a>
           </li>
+
+          <div>
+            <form action="/logout">
+
+              <button type="submit" class="logout" id="log">LOGOUT</button>
+
+            </form>
+          </div>
+
+          </button>
         </ul>
       </div>
     </div>
@@ -117,7 +127,7 @@
   NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
   </script>
 
-  <div class="faq">
+  <div class="faq" id="fuck">
     <h2 class="faq_title">Frequently Asked</h2>
     <h2 class="faq_title">Questions</h2>
 
@@ -125,20 +135,19 @@
       <div class="faq">
         <button class="accordion">What are the Rules & Regulations?</button>
         <div class="panel">
-          <br>Penalties<br>
-          <br>No use of transport <font color="pink">(100 points deduction) </font><br>
-          <br>All the members need to stick together and work on a single hint at a time. If found
-          malpracticing, first warning with <font color="pink">(100 points deduction) </font> leading to
+          <br>1) Penalties:<br>
+          <br>--Use of transport will lead to <font color="pink">100 points deduction</font>.<br>
+          <br>--All the members need to stick together and work on a single hint at a time. If found
+          malpracticing, first warning with <font color="pink">100 points deduction </font> leading to
           disqualification if found next time.<br>
-          <br>Asking coordinators for the hints <font color="pink">(100 points deduction) </font>.<br>
-          <br>Found interacting with members of other teams, first warning with <font color="pink">(100 points
-            deduction) </font> leading to the disqualification if found next time.<br>
-          <br>Disqualification<br>
-          <br>Damaging QR codes<br>
-          <br>Above mentioned disqualifications<br>
-          <br>A team gets a complimentary small game, if they win they get a chance to choose a power
-          randomly. And after that if they want to play a small game again they can play but for a price of
-          150 points.<br>
+          <br>--Asking coordinators for the hints will lead to <font color="pink">100 points deduction </font>.<br>
+          <br>-- If found interacting with members of other teams, first warning with <font color="pink">100 points
+            deduction </font> leading to the disqualification if found next time.<br>
+          <br>2) Disqualification:<br>
+          <br>--Damaging QR codes<br>
+          <br>--Above mentioned disqualifications<br>
+          <br>3) A team gets a complimentary small game, if they win they get a chance to choose a power randomly.
+          Further, if they want to play these again, they can play them at the expense of 150 points.<br>
         </div>
       </div>
       <div class="faq">
@@ -150,93 +159,92 @@
       <div class="faq">
         <button class="accordion">Do we need to follow the order of the clues provided to us?</button>
         <div class="panel">
-          <p>You do not have to follow the display order of the clues. In fact, you shouldn’t.</p>
-        </div>
-      </div>
-      <div class="faq">
-        <button class="accordion">How do we win?</button>
-        <div class="panel">
-          <p>Either you can rest or earn more points by solving bonus clues given to you.</p>
-        </div>
-      </div>
-      <div class="faq">
-        <button class="accordion">What do we do after we finish the hints allotted to us?</button>
-        <div class="panel">
-          <p>Either you can rest or earn more points by solving bonus clues given to you.</p>
+          <p>No follow up of order is needed. Clues can be solve in any order.</p>
         </div>
       </div>
       <div class="faq">
         <button class="accordion">What happens if I break the rules?</button>
         <div class="panel">
-          <p>you will we punished according to the rules and regulations mentioned above.</p>
+          <p>You will we punished according to the rules and regulations mentioned above.</p>
         </div>
       </div>
+      <div class="faq">
+        <button class="accordion">What is the winning criteria?</button>
+        <div class="panel">
+          <p>Solve the assigned hints as fast as possible gaining the maximum points possible.</p>
+        </div>
+      </div>
+      <div class="faq">
+        <button class="accordion">What do we do after we finish the hints allotted to us?</button>
+        <div class="panel">
+          <p>Either solve bonus clues given to you or can get some rest.</p>
+        </div>
 
-    </div>
-    <script>
-      var acc = document.getElementsByClassName("accordion");
-      var i;
+      </div>
+      <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
 
-      for (i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function () {
-          /* Toggle between adding and removing the "active" class,
-          to highlight the button that controls the panel */
-          this.classList.toggle("active");
+        for (i = 0; i < acc.length; i++) {
+          acc[i].addEventListener("click", function () {
+            /* Toggle between adding and removing the "active" class,
+            to highlight the button that controls the panel */
+            this.classList.toggle("active");
 
-          /* Toggle between hiding and showing the active panel */
-          var panel = this.nextElementSibling;
-          if (panel.style.display === "block") {
-            panel.style.display = "none";
+            /* Toggle between hiding and showing the active panel */
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+              panel.style.display = "none";
+            } else {
+              panel.style.display = "block";
+            }
+          });
+        }
+      </script>
+      <div class="rect">
+
+        <footer class="footer">
+          <div class="waves">
+            <div class="wave" id="wave1"></div>
+            <div class="wave" id="wave2"></div>
+            <div class="wave" id="wave3"></div>
+            <div class="wave" id="wave4"></div>
+          </div>
+          <br>
+          <ul class="social-icon">
+            <li class="social-icon__item"><a class="social-icon__link" href="https://www.facebook.com/mfcvit/">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a></li>
+            <li class="social-icon__item"><a class="social-icon__link" href="https://github.com/MFC-VIT">
+                <ion-icon name="logo-github"></ion-icon>
+              </a></li>
+            <li class="social-icon__item"><a class="social-icon__link"
+                href="https://www.linkedin.com/company/mfcvit/mycompany/">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a></li>
+            <li class="social-icon__item"><a class="social-icon__link" href="https://www.instagram.com/mfc_vit/?hl=en">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a></li><br>
+          </ul>
+
+          <p>&copy;2023 MOZILLA FIREFOX CLUB | All Rights Reserved</p>
+        </footer>
+      </div>
+      <!-- <script>
+        window.addEventListener('scroll', (e) => {
+          const nav = document.querySelector('.navbar');
+          if (window.pageYOffset > 0) {
+            nav.classList.add("add-shadow");
           } else {
-            panel.style.display = "block";
+            nav.classList.remove("add-shadow");
           }
         });
-      }
-    </script>
-    <div class="rect">
-
-      <footer class="footer">
-        <div class="waves">
-          <div class="wave" id="wave1"></div>
-          <div class="wave" id="wave2"></div>
-          <div class="wave" id="wave3"></div>
-          <div class="wave" id="wave4"></div>
-        </div>
-        <br>
-        <ul class="social-icon">
-          <li class="social-icon__item"><a class="social-icon__link" href="https://www.facebook.com/mfcvit/">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </a></li>
-          <li class="social-icon__item"><a class="social-icon__link" href="https://github.com/MFC-VIT">
-              <ion-icon name="logo-github"></ion-icon>
-            </a></li>
-          <li class="social-icon__item"><a class="social-icon__link"
-              href="https://www.linkedin.com/company/mfcvit/mycompany/">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a></li>
-          <li class="social-icon__item"><a class="social-icon__link" href="https://www.instagram.com/mfc_vit/?hl=en">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a></li><br>
-        </ul>
-
-        <p>&copy;2023 MOZILLA FIREFOX CLUB | All Rights Reserved</p>
-      </footer>
-    </div>
-    <script>
-      window.addEventListener('scroll', (e) => {
-        const nav = document.querySelector('.navbar');
-        if (window.pageYOffset > 0) {
-          nav.classList.add("add-shadow");
-        } else {
-          nav.classList.remove("add-shadow");
-        }
-      });
-    </script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-      crossorigin="anonymous"></script>
+      </script> -->
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
 </body>
 <script>
 
@@ -291,7 +299,7 @@
       });
   }
   updateData()
-  setInterval(updateData, 300000);
+  setInterval(updateData, 180000);
 
 </script>
 

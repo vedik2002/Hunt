@@ -6,7 +6,7 @@
   <title>Thank You</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel = "stylesheet" href="/public/styles/hexa.css">  
+  <link rel="stylesheet" href="/public/styles/hexa.css">
 </head>
 
 <body class="bod">
@@ -25,31 +25,38 @@
 </body>
 
 <script>
-  function updatepoint(){
-  const data = document.getElementById('t_no').value;
-  console.log(data)
-  const send = { search: data };
+  function updatepoint() {
+    const data = document.getElementById('t_no').value;
+    console.log(data)
+    const send = { search: data };
 
-  fetch('/dashboard/codes',{
-    method: 'POST',
-    headers:{
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(send)
-  })
-  .then(response=>{
-    if(response.ok){
-      window.location.href = '/dashboard/codes/success';
-      console.log(window.location.href);
-    }else{
-      throw new Error('Network response was not okay');
-    }
-  })
-  .catch(error=>{
-    console.error(error);
-    window.location.href = '/dashboard/codes/error';
-  })
-}
+    fetch('/dashboard/codes', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(send)
+    })
+      .then(response => {
+        if (response.status === 200) {
+          return response.json();
+        } else if (response.status === 404) {
+          throw new Error('Code not found');
+        } else if (response.status === 500) {
+          throw new Error('Internal server error');
+        }
+      })
+      .then(data => {
+        if (data.success) {
+          window.location.href = '/dashboard/codes/success';
+        } else {
+          window.location.href = '/dashboard/codes/error';
+        }
+      })
+      .catch(error => {
+        console.error(error);
+      })
+  }
 
 
 
